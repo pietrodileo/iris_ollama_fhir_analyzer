@@ -1,0 +1,8 @@
+The problem is that the database directories are being baked into the Docker image during the build process, not just persisting in volumes. This happens because the iris.script runs during the Docker build (RUN iris start IRIS && iris session IRIS < iris.script), which creates the databases inside the image itself.
+Here's what's happening:
+
+Build time: RUN iris start IRIS creates the databases in the image
+Runtime: When you start the container, those databases already exist in the image
+Volume mounting: Even mounting volumes doesn't help because the databases are already in the image layers
+
+Solution: Separate build-time and runtime setup

@@ -1,0 +1,322 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-4",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.259674",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-4",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-4",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "exam-request"
+                },
+                "source": {
+                    "name": "MPHC Pediatrics System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Encounter/encounter-4"
+                    },
+                    {
+                        "reference": "AllergyIntolerance/allergy-4"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Encounter/encounter-4",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "encounter-4",
+                "status": "planned",
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/sr-4"
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-4"
+                },
+                "diagnosis": [
+                    {
+                        "condition": {
+                            "reference": "Condition/condition-4"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "AllergyIntolerance/allergy-4",
+            "resource": {
+                "resourceType": "AllergyIntolerance",
+                "id": "allergy-4",
+                "patient": {
+                    "reference": "Patient/patient-4"
+                },
+                "reaction": [
+                    {
+                        "manifestation": [
+                            {
+                                "text": "Anaphylaxis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/allergen-code",
+                            "code": "256349002",
+                            "display": "Peanuts"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "ServiceRequest/sr-4",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "sr-4",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/placer-order-ids",
+                        "value": "sr-3004"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/patient-4"
+                },
+                "encounter": {
+                    "reference": "Encounter/encounter-4"
+                },
+                "requester": {
+                    "reference": "Practitioner/doctor-4"
+                },
+                "performer": {
+                    "reference": "Organization/hospital-4"
+                },
+                "specimen": [
+                    {
+                        "reference": "Specimen/specimen-4"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/exam-code",
+                            "code": "CBC",
+                            "display": "Complete blood count"
+                        }
+                    ]
+                },
+                "quantityQuantity": {
+                    "value": 1
+                }
+            }
+        },
+        {
+            "fullUrl": "Condition/condition-4",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "condition-4",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/diagnosis-ids",
+                        "value": "cond-2004"
+                    }
+                ],
+                "clinicalStatus": "active",
+                "subject": {
+                    "reference": "Patient/patient-4"
+                },
+                "severity": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "44054006",
+                            "display": "Severe"
+                        }
+                    ],
+                    "text": "Type 2 Diabetes"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/pathologytype",
+                            "code": "394577000",
+                            "display": "Main condition"
+                        }
+                    ],
+                    "text": "Type 2 Diabetes"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/pathologycode",
+                            "code": "44054006",
+                            "display": "Gastroenteritis"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "Specimen/specimen-4",
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "specimen-4",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/placer-order-ids",
+                        "value": "spec-1004"
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-4"
+                },
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/specimen-code",
+                            "code": "STL",
+                            "display": "Stool sample"
+                        }
+                    ]
+                },
+                "collection": {
+                    "collectedDateTime": "2025-09-20T11:54:22.259655"
+                }
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-4",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-4",
+                "name": "Miami Pediatric Health Center",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-4"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-4",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-4",
+                "gender": "Male",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Wilson",
+                        "given": [
+                            "David"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "202 Pine St, Miami, FL 33101",
+                        "line": [
+                            "202 Pine St"
+                        ],
+                        "city": "Miami",
+                        "state": "FL",
+                        "postalCode": "33101"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-777-8888",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-4",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-4",
+                "gender": "Female",
+                "active": "true",
+                "birthDate": "2020-11-05",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Davis",
+                        "given": [
+                            "Emily"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-444-5555",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "101 Oak St, Miami, FL 33101",
+                        "line": [
+                            "101 Oak St"
+                        ],
+                        "city": "Miami",
+                        "state": "FL",
+                        "postalCode": "33101"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1004",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-4",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-4",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        }
+    ]
+}

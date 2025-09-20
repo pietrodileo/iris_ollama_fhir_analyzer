@@ -1,0 +1,322 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-5",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.268981",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-5",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-5",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "exam-request"
+                },
+                "source": {
+                    "name": "CH Endocrinology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Encounter/encounter-5"
+                    },
+                    {
+                        "reference": "AllergyIntolerance/allergy-5"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Encounter/encounter-5",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "encounter-5",
+                "status": "planned",
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/sr-5"
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-5"
+                },
+                "diagnosis": [
+                    {
+                        "condition": {
+                            "reference": "Condition/condition-5"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "AllergyIntolerance/allergy-5",
+            "resource": {
+                "resourceType": "AllergyIntolerance",
+                "id": "allergy-5",
+                "patient": {
+                    "reference": "Patient/patient-5"
+                },
+                "reaction": [
+                    {
+                        "manifestation": [
+                            {
+                                "text": "Swelling"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/allergen-code",
+                            "code": "419199007",
+                            "display": "Shellfish"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "ServiceRequest/sr-5",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "sr-5",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/placer-order-ids",
+                        "value": "sr-3005"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/patient-5"
+                },
+                "encounter": {
+                    "reference": "Encounter/encounter-5"
+                },
+                "requester": {
+                    "reference": "Practitioner/doctor-5"
+                },
+                "performer": {
+                    "reference": "Organization/hospital-5"
+                },
+                "specimen": [
+                    {
+                        "reference": "Specimen/specimen-5"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/exam-code",
+                            "code": "GLU",
+                            "display": "Fasting blood glucose"
+                        }
+                    ]
+                },
+                "quantityQuantity": {
+                    "value": 1
+                }
+            }
+        },
+        {
+            "fullUrl": "Condition/condition-5",
+            "resource": {
+                "resourceType": "Condition",
+                "id": "condition-5",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/diagnosis-ids",
+                        "value": "cond-2005"
+                    }
+                ],
+                "clinicalStatus": "active",
+                "subject": {
+                    "reference": "Patient/patient-5"
+                },
+                "severity": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "44054006",
+                            "display": "Severe"
+                        }
+                    ],
+                    "text": "Type 2 Diabetes"
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/pathologytype",
+                            "code": "394577000",
+                            "display": "Main condition"
+                        }
+                    ],
+                    "text": "Type 2 Diabetes"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/pathologycode",
+                            "code": "44054006",
+                            "display": "Diabetes Mellitus"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "fullUrl": "Specimen/specimen-5",
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "specimen-5",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/placer-order-ids",
+                        "value": "spec-1005"
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-5"
+                },
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/specimen-code",
+                            "code": "BLD",
+                            "display": "Blood sample"
+                        }
+                    ]
+                },
+                "collection": {
+                    "collectedDateTime": "2025-09-20T11:54:22.268962"
+                }
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-5",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-5",
+                "name": "Central Hospital - Endocrinology Dept",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-5"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-5",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-5",
+                "gender": "Female",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Rodriguez",
+                        "given": [
+                            "Linda"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "333 Cedar St, New York, NY 10021",
+                        "line": [
+                            "333 Cedar St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10021"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-888-9999",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-5",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-5",
+                "gender": "Male",
+                "active": "true",
+                "birthDate": "1978-09-12",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Garcia",
+                        "given": [
+                            "Christopher"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-666-7777",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "222 Maple St, New York, NY 10001",
+                        "line": [
+                            "222 Maple St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1005",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-5",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-5",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        }
+    ]
+}

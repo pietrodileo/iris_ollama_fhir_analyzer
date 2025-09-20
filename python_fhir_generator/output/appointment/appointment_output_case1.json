@@ -1,0 +1,347 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-1",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.171586",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-1",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-1",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "appointment-booked"
+                },
+                "source": {
+                    "name": "NYGH Rheumatology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Appointment/appointment-1"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Appointment/appointment-1",
+            "resource": {
+                "resourceType": "Appointment",
+                "id": "appointment-1",
+                "status": "proposed",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://example.org/service-category",
+                                "code": "gp",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "394814009",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "appointmentType": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+                                "code": "Clinical Review",
+                                "display": "A routine check-up"
+                            }
+                        ]
+                    }
+                ],
+                "reasonCode": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "413095006"
+                            }
+                        ],
+                        "text": "Clinical Review"
+                    }
+                ],
+                "priority": 10,
+                "description": "New Appointment",
+                "minutesDuration": 39,
+                "slot": [
+                    {
+                        "reference": "Slot/slot-1"
+                    }
+                ],
+                "participant": [
+                    {
+                        "actor": {
+                            "reference": "Practitioner/doctor-1",
+                            "display": "Dr. Alice Smith"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Patient/patient-1",
+                            "display": "John Doe"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Location/location-1",
+                            "display": "Rheumatology Clinic 5th Floor"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Slot/slot-1",
+            "resource": {
+                "resourceType": "Slot",
+                "id": "slot-1",
+                "start": "2025-12-25T09:00:00Z",
+                "end": "2025-12-25T09:30:00Z",
+                "status": "free",
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "code": "408480009",
+                                "display": "Rheumatology"
+                            }
+                        ]
+                    }
+                ],
+                "schedule": {
+                    "reference": "Schedule/schedule-1"
+                }
+            }
+        },
+        {
+            "fullUrl": "Schedule/schedule-1",
+            "resource": {
+                "resourceType": "Schedule",
+                "id": "schedule-1",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "code": "17",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "planningHorizon": {
+                    "start": "2025-12-25T09:00:00Z",
+                    "end": "2025-12-25T09:30:00Z"
+                },
+                "actor": [
+                    {
+                        "reference": "Practitioner/doctor-1",
+                        "display": "Dr. Alice Smith"
+                    },
+                    {
+                        "reference": "Location/location-1",
+                        "display": "Rheumatology Clinic 5th Floor"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Location/location-1",
+            "resource": {
+                "resourceType": "Location",
+                "id": "location-1",
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "789 Oak St, New York, NY 10204",
+                        "line": [
+                            "789 Oak St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10204"
+                    }
+                ],
+                "active": "true",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-789-0123",
+                        "use": "work"
+                    },
+                    {
+                        "system": "email",
+                        "value": "mN2Og@example.com",
+                        "use": "work"
+                    }
+                ],
+                "name": "Rheumatology Clinic 5th Floor",
+                "position": [
+                    {
+                        "longitude": -83.6945691,
+                        "latitude": 42.25475478,
+                        "altitude": 0
+                    }
+                ],
+                "managingOrganization": [
+                    {
+                        "reference": "Organization/hospital-1"
+                    }
+                ],
+                "characteristic": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/location-characteristic",
+                                "code": "wheelchair",
+                                "display": "Wheelchair accessible"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-1",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-1",
+                "name": "New York General Hospital",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-1"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-1",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-1",
+                "gender": "Female",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Smith",
+                        "given": [
+                            "Alice"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "456 Elm St, New York, NY 10204",
+                        "line": [
+                            "456 Elm St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10204"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-123-4567",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-1",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-1",
+                "gender": "Male",
+                "active": "true",
+                "birthDate": "1990-01-01",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Doe",
+                        "given": [
+                            "John"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-5555",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "123 Main St, New York, NY 10001",
+                        "line": [
+                            "123 Main St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1001",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-1",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-1",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        }
+    ]
+}

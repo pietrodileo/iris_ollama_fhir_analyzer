@@ -1,0 +1,20 @@
+# Remove any old container
+docker rm -f fhir-analyzer
+
+# Remove any old local image tagged with fhir-analyzer
+docker rmi fhir-analyzer:latest
+
+# Build your clean project-specific image
+docker compose build --no-cache
+
+# Start container in background
+docker compose up -d
+
+# Check logs (should include your entrypoint messages)
+docker logs -f fhir-analyzer
+
+# Show entrypoint logs
+docker exec -it fhir-analyzer cat /opt/irisapp/logs/entrypoint.log
+
+# Open Management Portal
+http://localhost:9092/csp/sys/UtilHome.csp

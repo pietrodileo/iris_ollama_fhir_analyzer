@@ -1,0 +1,7 @@
+{
+    "objectscript.conn": {
+        "server": "docker_iris",
+        "ns": "FHIROLLAMA",
+        "active": false
+    }
+}

@@ -1,0 +1,273 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-4",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.364264",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-4",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-4",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "medical-prescription"
+                },
+                "source": {
+                    "name": "MPHC Pediatrics System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Composition/comp-4"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-4",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-4",
+                "gender": "Male",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Wilson",
+                        "given": [
+                            "David"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "202 Pine St, Miami, FL 33101",
+                        "line": [
+                            "202 Pine St"
+                        ],
+                        "city": "Miami",
+                        "state": "FL",
+                        "postalCode": "33101"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-777-8888",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-4",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-4",
+                "gender": "Female",
+                "active": "true",
+                "birthDate": "2020-11-05",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Davis",
+                        "given": [
+                            "Emily"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-444-5555",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "101 Oak St, Miami, FL 33101",
+                        "line": [
+                            "101 Oak St"
+                        ],
+                        "city": "Miami",
+                        "state": "FL",
+                        "postalCode": "33101"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1004",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Composition/comp-4",
+            "resource": {
+                "resourceType": "Composition",
+                "id": "comp-4",
+                "status": "final",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/compose-ids",
+                        "value": "comp-3004"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "57833-6",
+                            "display": "Prescription for medication"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "761938008",
+                            "display": "Medicinal prescription record (record artifact)"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/patient-4"
+                },
+                "author": {
+                    "reference": "Practitioner/doctor-4"
+                },
+                "date": "2025-12-28T14:40:00Z",
+                "section": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://loinc.org",
+                                    "code": "57828-6",
+                                    "display": "Prescription list"
+                                }
+                            ]
+                        },
+                        "entry": [
+                            {
+                                "reference": "MedicationRequest/medreq-4"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "MedicationRequest/medreq-4",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "medreq-4",
+                "status": "active",
+                "intent": "order",
+                "medication": [
+                    {
+                        "resourceType": "Medication",
+                        "id": "med-4-1",
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://medication-code",
+                                    "code": "445566",
+                                    "display": "Oral rehydration salts (ORS) solution"
+                                }
+                            ]
+                        },
+                        "amount": {
+                            "numerator": {
+                                "value": 250,
+                                "unit": "ml",
+                                "system": "http://snomed.info/sct",
+                                "code": "445566"
+                            },
+                            "denominator": {
+                                "value": 1,
+                                "unit": "sachet",
+                                "system": "http://snomed.info/sct",
+                                "code": "445566"
+                            }
+                        }
+                    },
+                    {
+                        "resourceType": "Medication",
+                        "id": "med-4-2",
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://medication-code",
+                                    "code": "778899",
+                                    "display": "Acetaminophen 120mg/5ml suspension"
+                                }
+                            ]
+                        },
+                        "amount": {
+                            "numerator": {
+                                "value": 5,
+                                "unit": "ml",
+                                "system": "http://snomed.info/sct",
+                                "code": "778899"
+                            },
+                            "denominator": {
+                                "value": 1,
+                                "unit": "dose",
+                                "system": "http://snomed.info/sct",
+                                "code": "778899"
+                            }
+                        }
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-4"
+                },
+                "performer": [
+                    {
+                        "reference": "Practitioner/doctor-4"
+                    }
+                ],
+                "dosageInstruction": [
+                    {
+                        "text": "Take every 8 hours with water",
+                        "timing": {
+                            "repeat": {
+                                "frequency": 3,
+                                "period": 24,
+                                "periodUnit": "h"
+                            }
+                        },
+                        "method": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "421661004",
+                                    "display": "Oral"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

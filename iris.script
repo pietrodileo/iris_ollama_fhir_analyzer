@@ -1,0 +1,17 @@
+// Unexpire passwords for dev mode
+zn "%SYS"
+Do ##class(Security.Users).UnExpireUserPasswords("*")
+
+// Load and compile installer
+set installerPath = "/opt/irisapp/App.Installer.cls"
+write "Loading installation file at '", installerPath, "' ...", !
+set errors = ""
+Set sc = $SYSTEM.OBJ.Load(installerPath, "ck", .errors)
+if errors = 0 { write "Classes loaded successfully", ! } else { write errors, " errors occurred while loading classes!", ! }
+if sc '= 1 { write $SYSTEM.Status.GetErrorText(sc), ! }
+
+// Run installer
+Set sc = ##class(App.Installer).setup() 
+if sc '= 1 { write $SYSTEM.Status.GetErrorText(sc), ! }
+
+halt

@@ -1,0 +1,246 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-3",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.355828",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-3",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-3",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "medical-prescription"
+                },
+                "source": {
+                    "name": "TOC Dermatology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Composition/comp-3"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-3",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-3",
+                "gender": "Female",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Miller",
+                        "given": [
+                            "Sarah"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "987 Oak Place, Austin, TX 78701",
+                        "line": [
+                            "987 Oak Place"
+                        ],
+                        "city": "Austin",
+                        "state": "TX",
+                        "postalCode": "78701"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-444-5555",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-3",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-3",
+                "gender": "Male",
+                "active": "true",
+                "birthDate": "1992-07-20",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Brown",
+                        "given": [
+                            "Michael"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-222-3333",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "789 Pine St, Houston, TX 77001",
+                        "line": [
+                            "789 Pine St"
+                        ],
+                        "city": "Houston",
+                        "state": "TX",
+                        "postalCode": "77001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1003",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Composition/comp-3",
+            "resource": {
+                "resourceType": "Composition",
+                "id": "comp-3",
+                "status": "final",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/compose-ids",
+                        "value": "comp-3003"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "57833-6",
+                            "display": "Prescription for medication"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "761938008",
+                            "display": "Medicinal prescription record (record artifact)"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/patient-3"
+                },
+                "author": {
+                    "reference": "Practitioner/doctor-3"
+                },
+                "date": "2025-12-27T11:40:00Z",
+                "section": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://loinc.org",
+                                    "code": "57828-6",
+                                    "display": "Prescription list"
+                                }
+                            ]
+                        },
+                        "entry": [
+                            {
+                                "reference": "MedicationRequest/medreq-3"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "MedicationRequest/medreq-3",
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "medreq-3",
+                "status": "active",
+                "intent": "order",
+                "medication": [
+                    {
+                        "resourceType": "Medication",
+                        "id": "med-3-1",
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://medication-code",
+                                    "code": "334455",
+                                    "display": "Imiquimod 5% cream"
+                                }
+                            ]
+                        },
+                        "amount": {
+                            "numerator": {
+                                "value": 1,
+                                "unit": "application",
+                                "system": "http://snomed.info/sct",
+                                "code": "334455"
+                            },
+                            "denominator": {
+                                "value": 1,
+                                "unit": "tube",
+                                "system": "http://snomed.info/sct",
+                                "code": "334455"
+                            }
+                        }
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-3"
+                },
+                "performer": [
+                    {
+                        "reference": "Practitioner/doctor-3"
+                    }
+                ],
+                "dosageInstruction": [
+                    {
+                        "text": "Take twice daily after meals",
+                        "timing": {
+                            "repeat": {
+                                "frequency": 2,
+                                "period": 24,
+                                "periodUnit": "h"
+                            }
+                        },
+                        "method": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "421661004",
+                                    "display": "Oral"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,347 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-5",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.213556",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-5",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-5",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "appointment-booked"
+                },
+                "source": {
+                    "name": "CH Endocrinology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Appointment/appointment-5"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Appointment/appointment-5",
+            "resource": {
+                "resourceType": "Appointment",
+                "id": "appointment-5",
+                "status": "proposed",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://example.org/service-category",
+                                "code": "gp",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "394814009",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "appointmentType": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+                                "code": "Routine Check-up",
+                                "display": "General health assessment"
+                            }
+                        ]
+                    }
+                ],
+                "reasonCode": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "413095006"
+                            }
+                        ],
+                        "text": "Clinical Review"
+                    }
+                ],
+                "priority": 9,
+                "description": "Routine Check-up",
+                "minutesDuration": 54,
+                "slot": [
+                    {
+                        "reference": "Slot/slot-5"
+                    }
+                ],
+                "participant": [
+                    {
+                        "actor": {
+                            "reference": "Practitioner/doctor-5",
+                            "display": "Dr. Linda Rodriguez"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Patient/patient-5",
+                            "display": "Christopher Garcia"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Location/location-5",
+                            "display": "Central Hospital - General Practice"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Slot/slot-5",
+            "resource": {
+                "resourceType": "Slot",
+                "id": "slot-5",
+                "start": "2025-12-29T09:00:00Z",
+                "end": "2025-12-29T09:30:00Z",
+                "status": "free",
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "code": "408480009",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "schedule": {
+                    "reference": "Schedule/schedule-5"
+                }
+            }
+        },
+        {
+            "fullUrl": "Schedule/schedule-5",
+            "resource": {
+                "resourceType": "Schedule",
+                "id": "schedule-5",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "code": "17",
+                                "display": "General Practice Clinic"
+                            }
+                        ]
+                    }
+                ],
+                "planningHorizon": {
+                    "start": "2025-12-29T09:00:00Z",
+                    "end": "2025-12-29T09:30:00Z"
+                },
+                "actor": [
+                    {
+                        "reference": "Practitioner/doctor-5",
+                        "display": "Dr. Linda Rodriguez"
+                    },
+                    {
+                        "reference": "Location/location-5",
+                        "display": "Central Hospital - General Practice"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Location/location-5",
+            "resource": {
+                "resourceType": "Location",
+                "id": "location-5",
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "444 Health Rd, New York, NY 10022",
+                        "line": [
+                            "444 Health Rd"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10022"
+                    }
+                ],
+                "active": "true",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-111-2222",
+                        "use": "work"
+                    },
+                    {
+                        "system": "email",
+                        "value": "gp@example.com",
+                        "use": "work"
+                    }
+                ],
+                "name": "Central Hospital - General Practice",
+                "position": [
+                    {
+                        "longitude": -83.6945691,
+                        "latitude": 42.25475478,
+                        "altitude": 0
+                    }
+                ],
+                "managingOrganization": [
+                    {
+                        "reference": "Organization/hospital-5"
+                    }
+                ],
+                "characteristic": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/location-characteristic",
+                                "code": "wheelchair",
+                                "display": "Wheelchair accessible"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-5",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-5",
+                "name": "Central Hospital - Endocrinology Dept",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-5"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-5",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-5",
+                "gender": "Female",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Rodriguez",
+                        "given": [
+                            "Linda"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "333 Cedar St, New York, NY 10021",
+                        "line": [
+                            "333 Cedar St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10021"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-888-9999",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-5",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-5",
+                "gender": "Male",
+                "active": "true",
+                "birthDate": "1978-09-12",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Garcia",
+                        "given": [
+                            "Christopher"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-666-7777",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "222 Maple St, New York, NY 10001",
+                        "line": [
+                            "222 Maple St"
+                        ],
+                        "city": "New York",
+                        "state": "NY",
+                        "postalCode": "10001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1005",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-5",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-5",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        }
+    ]
+}

@@ -1,0 +1,347 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-2",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.180294",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-2",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-2",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "appointment-booked"
+                },
+                "source": {
+                    "name": "CHI Cardiology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Appointment/appointment-2"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Appointment/appointment-2",
+            "resource": {
+                "resourceType": "Appointment",
+                "id": "appointment-2",
+                "status": "proposed",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://example.org/service-category",
+                                "code": "gp",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "394814009",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "appointmentType": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+                                "code": "Follow-up",
+                                "display": "Check-up after previous consultation"
+                            }
+                        ]
+                    }
+                ],
+                "reasonCode": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "413095006"
+                            }
+                        ],
+                        "text": "Clinical Review"
+                    }
+                ],
+                "priority": 4,
+                "description": "Follow-up Appointment",
+                "minutesDuration": 33,
+                "slot": [
+                    {
+                        "reference": "Slot/slot-2"
+                    }
+                ],
+                "participant": [
+                    {
+                        "actor": {
+                            "reference": "Practitioner/doctor-2",
+                            "display": "Dr. Mark Johnson"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Patient/patient-2",
+                            "display": "Jane Williams"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Location/location-2",
+                            "display": "Cardiology Outpatient Clinic"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Slot/slot-2",
+            "resource": {
+                "resourceType": "Slot",
+                "id": "slot-2",
+                "start": "2025-12-26T10:00:00Z",
+                "end": "2025-12-26T10:30:00Z",
+                "status": "free",
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "code": "408480009",
+                                "display": "Cardiology"
+                            }
+                        ]
+                    }
+                ],
+                "schedule": {
+                    "reference": "Schedule/schedule-2"
+                }
+            }
+        },
+        {
+            "fullUrl": "Schedule/schedule-2",
+            "resource": {
+                "resourceType": "Schedule",
+                "id": "schedule-2",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "code": "17",
+                                "display": "Cardiology Clinic"
+                            }
+                        ]
+                    }
+                ],
+                "planningHorizon": {
+                    "start": "2025-12-26T10:00:00Z",
+                    "end": "2025-12-26T10:30:00Z"
+                },
+                "actor": [
+                    {
+                        "reference": "Practitioner/doctor-2",
+                        "display": "Dr. Mark Johnson"
+                    },
+                    {
+                        "reference": "Location/location-2",
+                        "display": "Cardiology Outpatient Clinic"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Location/location-2",
+            "resource": {
+                "resourceType": "Location",
+                "id": "location-2",
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "100 Heart Ave, San Francisco, CA 94102",
+                        "line": [
+                            "100 Heart Ave"
+                        ],
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "postalCode": "94102"
+                    }
+                ],
+                "active": "true",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-333-4444",
+                        "use": "work"
+                    },
+                    {
+                        "system": "email",
+                        "value": "cardio@example.com",
+                        "use": "work"
+                    }
+                ],
+                "name": "Cardiology Outpatient Clinic",
+                "position": [
+                    {
+                        "longitude": -83.6945691,
+                        "latitude": 42.25475478,
+                        "altitude": 0
+                    }
+                ],
+                "managingOrganization": [
+                    {
+                        "reference": "Organization/hospital-2"
+                    }
+                ],
+                "characteristic": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/location-characteristic",
+                                "code": "wheelchair",
+                                "display": "Wheelchair accessible"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-2",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-2",
+                "name": "California Heart Institute",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-2"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-2",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-2",
+                "gender": "Male",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Johnson",
+                        "given": [
+                            "Mark"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "789 Anthony St, San Francisco, CA 94101",
+                        "line": [
+                            "789 Anthony St"
+                        ],
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "postalCode": "94101"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-111-2222",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-2",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-2",
+                "gender": "Female",
+                "active": "true",
+                "birthDate": "1985-03-15",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Williams",
+                        "given": [
+                            "Jane"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-000-0000",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "456 Elm St, Los Angeles, CA 90001",
+                        "line": [
+                            "456 Elm St"
+                        ],
+                        "city": "Los Angeles",
+                        "state": "CA",
+                        "postalCode": "90001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1002",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-2",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-2",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+services:
+  iris:
+    container_name: fhir-analyzer
+    build:
+      context: .        # Build using local Dockerfile
+      dockerfile: Dockerfile
+    image: fhir-analyzer:latest  # Custom project image, not the base one
+    init: true
+    restart: unless-stopped
+    volumes:
+      - ./storage:/durable
+    ports:
+      - "9092:52773"  # Management Portal / REST APIs
+      - "9091:1972"   # SuperServer port
+      - "11434:11434"   # Ollama port
+    environment:
+      - ISC_DATA_DIRECTORY=/durable/iris
+    # command: --password-file /durable/password/password.txt

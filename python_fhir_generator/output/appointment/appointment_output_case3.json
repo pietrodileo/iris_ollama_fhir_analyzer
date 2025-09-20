@@ -1,0 +1,347 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-3",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.189304",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-3",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-3",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "appointment-booked"
+                },
+                "source": {
+                    "name": "TOC Dermatology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "Appointment/appointment-3"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Appointment/appointment-3",
+            "resource": {
+                "resourceType": "Appointment",
+                "id": "appointment-3",
+                "status": "proposed",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://example.org/service-category",
+                                "code": "gp",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "394814009",
+                                "display": "General Practice"
+                            }
+                        ]
+                    }
+                ],
+                "appointmentType": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/v2-0276",
+                                "code": "Skin Check",
+                                "display": "Routine skin examination"
+                            }
+                        ]
+                    }
+                ],
+                "reasonCode": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "413095006"
+                            }
+                        ],
+                        "text": "Clinical Review"
+                    }
+                ],
+                "priority": 5,
+                "description": "Skin Check Appointment",
+                "minutesDuration": 23,
+                "slot": [
+                    {
+                        "reference": "Slot/slot-3"
+                    }
+                ],
+                "participant": [
+                    {
+                        "actor": {
+                            "reference": "Practitioner/doctor-3",
+                            "display": "Dr. Sarah Miller"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Patient/patient-3",
+                            "display": "Michael Brown"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    },
+                    {
+                        "actor": {
+                            "reference": "Location/location-3",
+                            "display": "Dermatology Center"
+                        },
+                        "required": "required",
+                        "status": "needs-action"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Slot/slot-3",
+            "resource": {
+                "resourceType": "Slot",
+                "id": "slot-3",
+                "start": "2025-12-27T11:00:00Z",
+                "end": "2025-12-27T11:30:00Z",
+                "status": "free",
+                "specialty": [
+                    {
+                        "coding": [
+                            {
+                                "code": "408480009",
+                                "display": "Dermatology"
+                            }
+                        ]
+                    }
+                ],
+                "schedule": {
+                    "reference": "Schedule/schedule-3"
+                }
+            }
+        },
+        {
+            "fullUrl": "Schedule/schedule-3",
+            "resource": {
+                "resourceType": "Schedule",
+                "id": "schedule-3",
+                "serviceCategory": [
+                    {
+                        "coding": [
+                            {
+                                "code": "17",
+                                "display": "Dermatology Clinic"
+                            }
+                        ]
+                    }
+                ],
+                "planningHorizon": {
+                    "start": "2025-12-27T11:00:00Z",
+                    "end": "2025-12-27T11:30:00Z"
+                },
+                "actor": [
+                    {
+                        "reference": "Practitioner/doctor-3",
+                        "display": "Dr. Sarah Miller"
+                    },
+                    {
+                        "reference": "Location/location-3",
+                        "display": "Dermatology Center"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Location/location-3",
+            "resource": {
+                "resourceType": "Location",
+                "id": "location-3",
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "321 Skin Blvd, Austin, TX 78702",
+                        "line": [
+                            "321 Skin Blvd"
+                        ],
+                        "city": "Austin",
+                        "state": "TX",
+                        "postalCode": "78702"
+                    }
+                ],
+                "active": "true",
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-555-1212",
+                        "use": "work"
+                    },
+                    {
+                        "system": "email",
+                        "value": "derma@example.com",
+                        "use": "work"
+                    }
+                ],
+                "name": "Dermatology Center",
+                "position": [
+                    {
+                        "longitude": -83.6945691,
+                        "latitude": 42.25475478,
+                        "altitude": 0
+                    }
+                ],
+                "managingOrganization": [
+                    {
+                        "reference": "Organization/hospital-3"
+                    }
+                ],
+                "characteristic": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/location-characteristic",
+                                "code": "wheelchair",
+                                "display": "Wheelchair accessible"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-3",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-3",
+                "name": "Texas Oncology Center",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-3"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-3",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-3",
+                "gender": "Female",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Miller",
+                        "given": [
+                            "Sarah"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "987 Oak Place, Austin, TX 78701",
+                        "line": [
+                            "987 Oak Place"
+                        ],
+                        "city": "Austin",
+                        "state": "TX",
+                        "postalCode": "78701"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-444-5555",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-3",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-3",
+                "gender": "Male",
+                "active": "true",
+                "birthDate": "1992-07-20",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Brown",
+                        "given": [
+                            "Michael"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-222-3333",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "789 Pine St, Houston, TX 77001",
+                        "line": [
+                            "789 Pine St"
+                        ],
+                        "city": "Houston",
+                        "state": "TX",
+                        "postalCode": "77001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1003",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-3",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-3",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        }
+    ]
+}

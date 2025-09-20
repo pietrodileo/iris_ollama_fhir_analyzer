@@ -1,0 +1,308 @@
+{
+    "resourceType": "Bundle",
+    "id": "bundle-2",
+    "type": "message",
+    "timestamp": "2025-09-20T11:54:22.294597",
+    "entry": [
+        {
+            "fullUrl": "MessageHeader/msg-2",
+            "resource": {
+                "resourceType": "MessageHeader",
+                "id": "msg-2",
+                "eventCoding": {
+                    "system": "http://hl7.org/fhir/message-events",
+                    "code": "exam-result"
+                },
+                "source": {
+                    "name": "CHI Cardiology System",
+                    "endpoint": "https://acme.example.org/fhir"
+                },
+                "focus": [
+                    {
+                        "reference": "DiagnosticReport/dr-2"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Encounter/encounter-2",
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "encounter-2",
+                "status": "planned",
+                "basedOn": [
+                    {
+                        "reference": "ServiceRequest/sr-2"
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/patient-2"
+                },
+                "diagnosis": [
+                    {
+                        "condition": {
+                            "reference": ""
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "ServiceRequest/sr-2",
+            "resource": {
+                "resourceType": "ServiceRequest",
+                "id": "sr-2",
+                "identifier": [
+                    {
+                        "system": "http://hospital.smarthealthit.org/placer-order-ids",
+                        "value": "sr-3002"
+                    }
+                ],
+                "status": "active",
+                "intent": "order",
+                "subject": {
+                    "reference": "Patient/patient-2"
+                },
+                "encounter": {
+                    "reference": "Encounter/encounter-2"
+                },
+                "requester": {
+                    "reference": "Practitioner/doctor-2"
+                },
+                "performer": {
+                    "reference": "Organization/hospital-2"
+                },
+                "specimen": [
+                    {
+                        "reference": ""
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/exam-code",
+                            "code": "ECG",
+                            "display": "Electrocardiogram"
+                        }
+                    ]
+                },
+                "quantityQuantity": {
+                    "value": 1
+                }
+            }
+        },
+        {
+            "fullUrl": "Organization/hospital-2",
+            "resource": {
+                "resourceType": "Organization",
+                "id": "hospital-2",
+                "name": "California Heart Institute",
+                "endpoint": {
+                    "reference": "Endpoint/endpoint-2"
+                }
+            }
+        },
+        {
+            "fullUrl": "Practitioner/doctor-2",
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "doctor-2",
+                "gender": "Male",
+                "active": "true",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Johnson",
+                        "given": [
+                            "Mark"
+                        ]
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "789 Anthony St, San Francisco, CA 94101",
+                        "line": [
+                            "789 Anthony St"
+                        ],
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "postalCode": "94101"
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-111-2222",
+                        "use": "mobile"
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Patient/patient-2",
+            "resource": {
+                "resourceType": "Patient",
+                "id": "patient-2",
+                "gender": "Female",
+                "active": "true",
+                "birthDate": "1985-03-15",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Williams",
+                        "given": [
+                            "Jane"
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-000-0000",
+                        "use": "mobile"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "home",
+                        "type": "both",
+                        "text": "456 Elm St, Los Angeles, CA 90001",
+                        "line": [
+                            "456 Elm St"
+                        ],
+                        "city": "Los Angeles",
+                        "state": "CA",
+                        "postalCode": "90001"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "use": "usual",
+                        "type": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                                    "code": "MR"
+                                }
+                            ]
+                        },
+                        "system": "urn:oid:1.2.36.146.595.217.0.1",
+                        "value": "pat-1002",
+                        "period": {
+                            "start": "2001-05-06"
+                        },
+                        "assigner": {
+                            "display": "Acme Healthcare"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "fullUrl": "Endpoint/endpoint-2",
+            "resource": {
+                "resourceType": "Endpoint",
+                "id": "endpoint-2",
+                "status": "active",
+                "connectionType": {
+                    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+                    "code": "hl7-fhir-rest"
+                },
+                "address": "https://acme.example.org/fhir"
+            }
+        },
+        {
+            "fullUrl": "DiagnosticReport/dr-2",
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "id": "dr-2",
+                "patient": {
+                    "reference": "Patient/patient-2"
+                },
+                "encounter": {
+                    "reference": "Encounter/encounter-2"
+                },
+                "performer": {
+                    "reference": "Organization/hospital-2"
+                },
+                "result": [
+                    {
+                        "reference": "Observation/obs-2-1"
+                    },
+                    {
+                        "reference": "Observation/obs-2-2"
+                    }
+                ],
+                "status": "final"
+            }
+        },
+        {
+            "fullUrl": "Observation/obs-2-1",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "obs-2-1",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://result-code",
+                            "code": "High",
+                            "display": "High systolic BP"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/patient-2"
+                },
+                "effectiveDateTime": "2025-12-26T10:05:00Z",
+                "performer": [
+                    {
+                        "reference": "Organization/hospital-2"
+                    }
+                ],
+                "valueQuantity": {
+                    "value": 160,
+                    "unit": "mmHg",
+                    "system": "http://snomed.info/sct",
+                    "code": "8480-6",
+                    "display": "Systolic blood pressure"
+                }
+            }
+        },
+        {
+            "fullUrl": "Observation/obs-2-2",
+            "resource": {
+                "resourceType": "Observation",
+                "id": "obs-2-2",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://result-code",
+                            "code": "High",
+                            "display": "High diastolic BP"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/patient-2"
+                },
+                "effectiveDateTime": "2025-12-26T10:06:00Z",
+                "performer": [
+                    {
+                        "reference": "Organization/hospital-2"
+                    }
+                ],
+                "valueQuantity": {
+                    "value": 100,
+                    "unit": "mmHg",
+                    "system": "http://snomed.info/sct",
+                    "code": "8462-4",
+                    "display": "Diastolic blood pressure"
+                }
+            }
+        }
+    ]
+}
