@@ -13,6 +13,7 @@ services:
       - "9092:52773"  # Management Portal / REST APIs
       - "9091:1972"   # SuperServer port
       - "11434:11434"   # Ollama port
+      - "5000:5000"   # Transformer port
     environment:
       - ISC_DATA_DIRECTORY=/durable/iris
     # command: --password-file /durable/password/password.txt

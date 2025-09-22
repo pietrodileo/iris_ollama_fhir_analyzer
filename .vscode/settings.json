@@ -2,6 +2,8 @@
     "objectscript.conn": {
         "server": "docker_iris",
         "ns": "FHIROLLAMA",
-        "active": false
-    }
+        "active": true,
+        "username": "_SYSTEM"
+    },
+    "workbench.colorTheme": "Default Dark Modern"
 }

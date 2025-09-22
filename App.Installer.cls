@@ -29,8 +29,22 @@ XData setup
     </Namespace>
   </If>
 
-  <!-- Create Web Application -->
+  <!-- Create Web Application for reach the production -->
   <Invoke Class="App.Installer" Method="RegisterWebApplication" CheckStatus="1" Return="restsc"> 
+    <Arg Value="${NAMESPACE}"/>
+    <Arg Value="/fhir"/>
+    <Arg Value="EnsLib.REST.GenericService"/>
+    <Arg Value="REST API to handle FHIR messages"/>
+    <Arg Value="1"/>
+  </Invoke>
+
+  <!-- Create Web Application to return FHIR response (mockserver) -->
+  <Invoke Class="App.Installer" Method="RegisterWebApplication" CheckStatus="1" Return="restsc"> 
+    <Arg Value="${NAMESPACE}"/>
+    <Arg Value="/mockserver"/>
+    <Arg Value="FHIROLLAMA.API.REST"/>
+    <Arg Value="REST API to return FHIR response"/>
+    <Arg Value="1"/>
   </Invoke>
 
   <Log Level="3" Text="End manifest" />

@@ -10,6 +10,9 @@ docker compose build --no-cache
 # Start container in background
 docker compose up -d
 
+# Start container in background and build image
+docker compose up -d --build
+
 # Check logs (should include your entrypoint messages)
 docker logs -f fhir-analyzer
 
@@ -18,3 +21,14 @@ docker exec -it fhir-analyzer cat /opt/irisapp/logs/entrypoint.log
 
 # Open Management Portal
 http://localhost:9092/csp/sys/UtilHome.csp
+
+# Access IRIS Terminal
+docker exec -it fhir-analyzer iris session IRIS
+
+# get install dir
+docker exec -it fhir-analyzer iris session IRIS
+w $system.Util.InstallDirectory() # should be /usr/irissys/
+
+# install embedded python iris packages
+# python3 -m pip install --target <install-dir>/mgr/python <package>
+docker exec -it fhir-analyzer python3 -m pip install --target /usr/irissys/mgr/python sentence-transformers

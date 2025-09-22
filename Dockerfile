@@ -59,4 +59,4 @@ ENTRYPOINT ["/opt/irisapp/entrypoint.sh"]
 #   1972  -> IRIS SuperServer (ODBC, JDBC, etc.)
 #   52773 -> Management Portal / Web Apps
 # ------------------------------------------------------------------------------
-EXPOSE 1972 52773 11434
+EXPOSE 1972 52773 11434 5000
